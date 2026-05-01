@@ -1,5 +1,3 @@
-import axios from 'axios';
-
 let mockAudits = [
   { id: 1, title: 'Q1 Financial Audit', category: 'Finance', status: 'Completed', score: 92, date: '2026-03-15' },
   { id: 2, title: 'Security Compliance', category: 'Security', status: 'In Progress', score: null, date: '2026-04-10' },
@@ -28,9 +26,9 @@ export const getAudits = async (page = 0, size = 10, sortBy = 'id', sortDir = 'a
         let valA = a[sortBy];
         let valB = b[sortBy];
         
-        if (valA === null) valA = '';
-        if (valB === null) valB = '';
-
+        if (valA === null && valB === null) return 0;
+        if (valA === null) return sortDir === 'asc' ? 1 : -1;
+        if (valB === null) return sortDir === 'asc' ? -1 : 1;
         if (valA < valB) return sortDir === 'asc' ? -1 : 1;
         if (valA > valB) return sortDir === 'asc' ? 1 : -1;
         return 0;

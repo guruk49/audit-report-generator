@@ -75,23 +75,35 @@ export default function AuditList() {
           <table className="w-full text-left text-sm text-gray-600">
             <thead className="bg-gray-50 border-b border-gray-200 text-gray-700 select-none">
               <tr>
-                <th className="px-6 py-4 font-medium cursor-pointer hover:bg-gray-100" onClick={() => handleSort('id')}>
-                  ID {renderSortIcon('id')}
+                <th className="px-6 py-4 font-medium">
+                  <button type="button" className="flex w-full items-center gap-1 text-left hover:bg-gray-100 cursor-pointer" onClick={() => handleSort('id')}>
+                    ID {renderSortIcon('id')}
+                  </button>
                 </th>
-                <th className="px-6 py-4 font-medium cursor-pointer hover:bg-gray-100" onClick={() => handleSort('title')}>
-                  Title {renderSortIcon('title')}
+                <th className="px-6 py-4 font-medium">
+                  <button type="button" className="flex w-full items-center gap-1 text-left hover:bg-gray-100 cursor-pointer" onClick={() => handleSort('title')}>
+                    Title {renderSortIcon('title')}
+                  </button>
                 </th>
-                <th className="px-6 py-4 font-medium cursor-pointer hover:bg-gray-100" onClick={() => handleSort('category')}>
-                  Category {renderSortIcon('category')}
+                <th className="px-6 py-4 font-medium">
+                  <button type="button" className="flex w-full items-center gap-1 text-left hover:bg-gray-100 cursor-pointer" onClick={() => handleSort('category')}>
+                    Category {renderSortIcon('category')}
+                  </button>
                 </th>
-                <th className="px-6 py-4 font-medium cursor-pointer hover:bg-gray-100" onClick={() => handleSort('status')}>
-                  Status {renderSortIcon('status')}
+                <th className="px-6 py-4 font-medium">
+                  <button type="button" className="flex w-full items-center gap-1 text-left hover:bg-gray-100 cursor-pointer" onClick={() => handleSort('status')}>
+                    Status {renderSortIcon('status')}
+                  </button>
                 </th>
-                <th className="px-6 py-4 font-medium cursor-pointer hover:bg-gray-100" onClick={() => handleSort('date')}>
-                  Date {renderSortIcon('date')}
+                <th className="px-6 py-4 font-medium">
+                  <button type="button" className="flex w-full items-center gap-1 text-left hover:bg-gray-100 cursor-pointer" onClick={() => handleSort('date')}>
+                    Date {renderSortIcon('date')}
+                  </button>
                 </th>
-                <th className="px-6 py-4 font-medium cursor-pointer hover:bg-gray-100" onClick={() => handleSort('score')}>
-                  Score {renderSortIcon('score')}
+                <th className="px-6 py-4 font-medium">
+                  <button type="button" className="flex w-full items-center gap-1 text-left hover:bg-gray-100 cursor-pointer" onClick={() => handleSort('score')}>
+                    Score {renderSortIcon('score')}
+                  </button>
                 </th>
                 <th className="px-6 py-4 font-medium"></th>
               </tr>
@@ -135,7 +147,10 @@ export default function AuditList() {
                     <td className="px-6 py-4">{audit.date}</td>
                     <td className="px-6 py-4">{audit.score !== null ? audit.score : '-'}</td>
                     <td className="px-6 py-4 text-right">
-                      <button className="text-gray-400 hover:text-gray-600">
+                      <button
+                        className="text-gray-400 hover:text-gray-600"
+                        aria-label={`More actions for audit #${audit.id}`}
+                      >
                         <MoreVertical size={20} />
                       </button>
                     </td>

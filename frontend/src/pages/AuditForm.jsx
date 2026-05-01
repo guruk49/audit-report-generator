@@ -53,8 +53,9 @@ export default function AuditForm() {
       <div className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
         <form onSubmit={handleSubmit} className="p-6 space-y-6">
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Audit Title *</label>
+            <label htmlFor="title" className="block text-sm font-medium text-gray-700 mb-1">Audit Title *</label>
             <input 
+              id="title"
               type="text" 
               name="title"
               value={formData.title}
@@ -94,8 +95,9 @@ export default function AuditForm() {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Description *</label>
+            <label htmlFor="description" className="block text-sm font-medium text-gray-700 mb-1">Description *</label>
             <textarea 
+              id="description"
               name="description"
               value={formData.description}
               onChange={handleChange}
